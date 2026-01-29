@@ -37,3 +37,11 @@ jobs:
         run: |
           cd WorkLog_Submission-main
           node index.js
+
+      - name: Upload screenshot artifacts (if exists)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: form-screenshots
+          path: WorkLog_Submission-main/*.png
+          if-no-files-found: ignore
